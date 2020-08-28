@@ -6,40 +6,12 @@ import axios from 'axios'
 import "./EmailList.css"
 
 class EmailList extends Component {
-    static defaultProps = {
-        numJokesToGet: 10
-    };
 
     constructor(props) {
         super(props)
-        this.state = {
-            jokes: JSON.parse(window.localStorage.getItem("jokes") || "[]"),
-            loading: false
-        }
-        this.seenJokes = new Set(this.state.jokes.map( j => j.text));
-        this.handleClick = this.handleClick.bind(this)
-    }
-
-    componentDidMount() {
-        if(this.state.jokes.length === 0) {
-            this.getJokes();
-        }
-    }
-
-    handleClick() {
-        this.setState({loading:true}, this.getJokes);
     }
 
     render() {
-
-        // if(this.state.loading) {
-        //     return (
-        //         <div className="JokeList-spinner">
-        //             <i className="far fa-8x fa-laugh fa-spin" />
-        //             <h1 className="JokeList-title">loading...</h1>
-        //         </div>
-        //     )
-        // }
 
         let mails = [
             {
