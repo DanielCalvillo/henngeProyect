@@ -1,0 +1,19 @@
+.email-list {
+    display: flex;
+    max-width: 2000px;
+    max-height: 2000px;
+    height: 100%;
+}
+
+  .email-list-emails {
+    height: 90%;
+    background: white;
+    align-self: center;
+    width: 1600px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .JokeList-spinner {
+    color: white;
+    text-align: center;
+  }

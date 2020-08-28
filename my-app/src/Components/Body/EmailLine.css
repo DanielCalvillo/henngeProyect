@@ -1,0 +1,45 @@
+.mail {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #eeeeee;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-weight: 100;
+    padding: .2rem;
+  }
+  
+  .mail-text {
+    width: 18%;
+    font-size: 1rem;
+    overflow: hidden;
+  }
+
+  .email {
+    flex-grow: 1;
+  }
+
+  .num {
+    width: 2%;
+  }
+
+  .subject {
+    flex-grow: 3;
+    width: 30%;
+    font-size: 1rem;
+    overflow: hidden;
+  }
+
+  .clipped {
+    width: 2%
+  }
+
+  .date {
+    align-items: flex-end;
+    width: 50px;
+  }
+
+  .first {
+    margin-left: 2vh;
+  }
+  
