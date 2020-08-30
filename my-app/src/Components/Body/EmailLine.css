@@ -1,7 +1,7 @@
 .mail {
     display: flex;
     flex-wrap: wrap;
-    border-bottom: 2px solid #eeeeee;
+    /* border-bottom: 2px solid #eeeeee; */
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
@@ -36,7 +36,8 @@
 
   .date {
     align-items: flex-end;
-    width: 50px;
+    font-weight: 600;
+    width: 110px;
   }
 
   .first {

@@ -1,12 +1,11 @@
 import React from 'react';
-import arrowLogo from '../../../Assets/icons/icon_arrow01.svg';
+import arrowLogo from '../../Assets/icons/icon_arrow01.svg';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
     container: {
         display: "flex",
         // backgroundColor: "#ededed",
-        flexWrap: "wrap",
         flexDirection: "row",
         alignItems: "flex-start",
         justifyContent: "space-between",
@@ -14,13 +13,15 @@ const useStyles = makeStyles(() => ({
         padding: ".2rem",
         height: "3vh",
       },
-    arrowLogo: {
-        marginLeft: ".3vh",
+      arrowLogo: {
+        marginLeft: "1vh",
         marginBottom: ".2vh",
-        height: ".6vh"
+        height: "1vh"
     },
-    dateContainer : {
-        textAlign: "left",
+    date: {
+        marginRight: "6vh",
+    },
+    from: {
         fontWeight: 600
     }
 }));
@@ -30,26 +31,34 @@ function ResultsTable() {
 
     return (
         <div className={classes.container}>
-            <div className="mail-text email first">
+            <div className={classes.from}>
                 From
-            </div>
-            
-            <div className="mail-text email">
-                To
-            </div>
-            <div className="mail-text subject" >
-                Subject
-            </div>
-            <div className="mail-text date" style={{width:"100px"}}>
-                Date
                 <img 
                     className={classes.arrowLogo} 
                     src={arrowLogo} 
                     alt="Calendar Logo" 
                 />
             </div>
+                |
+            
+            <div className={classes.to}>
+                To
+            </div>
+                |
+            
+            <div className={classes.subject} >
+                Subject
+            </div>
+                |
+            
+            <div className={classes.date}>
+                Date
+            </div>
         </div>
     )
 }
 
 export default ResultsTable
+
+
+

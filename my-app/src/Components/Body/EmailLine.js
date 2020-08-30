@@ -1,46 +1,76 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './EmailLine.css';
+import { makeStyles } from '@material-ui/core/styles';
+import EmailBody from './EmailBody'
+import clipIcon from '../../Assets/icons/icon_clip.svg'
 
-class EmailLine extends Component {
-    constructor(props){
-        super(props)
-        this.extraNum = this.extraNum.bind(this)
+const useStyles = makeStyles(() => ({
+    container: {
+        '&:hover': {
+            cursor: "pointer"
+        }
+    },
+    clipIcon: {
+        height: "3vh",
+        marginRight: "1vh"
     }
-    extraNum(extraNum) {
-        if (this.props.extraNum) {
+}));
+function EmailLine(props) {
+
+    const [deployed, changeDeployed] = useState(false);
+
+    const renderClip = () => {
+        if (props.clipped) {
             return (
-                <div className=" num">
-                    {this.props.extraNum}
-                </div>
+                <img src={clipIcon} className={classes.clipIcon} alt="Clip Icon"/>
             )
-        } else {
-            return null
         }
     }
 
-    render() {
+    const deployEmail = () => {
+        if (deployed) {
+            return (
+                <EmailBody 
+                    key={props.id} 
+                    from={props.from} 
+                    to={props.to} 
+                    subject={props.subject} 
+                    date={props.date}
+                    extraNum={props.extraNum}
+                    clipped={props.clipped}
+                />
+            )
+        } else {
+            return (
+                <div className="mail">
+                    <div className="mail-text email first">
+                        {props.from}
+                    </div>
+
+                    <div className="mail-text email">
+                        {props.to}
+                    </div>
+                    <div className="mail-text subject">
+                        {props.subject}
+                    </div>
+                    <div className="mail-text date">
+                        {renderClip()}{props.date}
+                    </div>
+                </div>
+            )
+        }
+    }
+
+    const handleClick =(evt) => {
+        changeDeployed(!deployed)
+    }
+
+        const classes = useStyles()
         return (
-            <div className="mail">
-                <div className="mail-text email first">
-                    {this.props.from}
-                </div>
-                
-                <div className="mail-text email">
-                    {this.props.to}
-                </div>
-                <this.extraNum />
-                <div className="mail-text subject">
-                    {this.props.subject}
-                </div>
-                <div className="mail-text clipped">
-                    {this.props.clipped}
-                </div>
-                <div className="mail-text date">
-                    {this.props.date}
-                </div>
+            <div onClick={handleClick} className={classes.container}>
+                {deployEmail()}
             </div>
         )
-    }
 }
 
 export default EmailLine

@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
-import EmailLine from './EmailLine';
+import React from 'react'
+import EmailLineMobile from './EmailLineMobile';
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles(() => ({
 
-import "./EmailList.css"
+}));
 
-class EmailList extends Component {
+function EmailListMobile() {
 
-    render() {
-
-        let mails = [
+    const classes = useStyles();
+    let mails = [
             {
                 id: 1234,
                 from: 'aaa@example.com', 
@@ -98,28 +99,25 @@ class EmailList extends Component {
                 extraNum: 3,
                 clipped: true
             }
-        ]
+    ]
 
-        return(
-            <div className="email-list">
-                <div className="email-list-emails">
-                    {mails.map( m => (
-                        <>
-                            <EmailLine 
-                                key={m.id} 
-                                from={m.from} 
-                                to={m.to} 
-                                subject={m.subject} 
-                                date={m.date}
-                                extraNum={m.extraNum}
-                                clipped={m.clipped}
-                            />
-                            <hr />
-                        </>
-                    ))}
-                </div>
-            </div>
-        )
-    }
+    return(
+        <div className={classes.emailListContainer}>
+                {mails.map( m => (
+                    <>
+                        <EmailLineMobile 
+                            key={m.id} 
+                            from={m.from} 
+                            to={m.to} 
+                            subject={m.subject} 
+                            date={m.date}
+                            extraNum={m.extraNum}
+                            clipped={m.clipped}
+                        />
+                        <hr />
+                    </>
+                ))}
+        </div>
+    )
 }
-export default EmailList
+export default EmailListMobile

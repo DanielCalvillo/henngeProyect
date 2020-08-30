@@ -15,26 +15,50 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
     container: {
         display: "flex",
-        marginLeft: "17vh",
+        width: "310px",
+        paddingRight:"1vh",
+        marginLeft: "0",
         marginTop: "6vh",
-        marginBottom: "2vh"
+        marginBottom: "4vh"
+    },
+    datepickerAndCalendarLogo: {
+        display: "flex",
+        borderStyle: "solid",
+        borderTopLeftRadius: "10px",
+        borderBottomLeftRadius: "10px",
+        borderColor: "#9c9c9c",
+        borderWidth: "thin" 
     },
     datepickerContainer: {
-        marginTop: "1vh"
+        marginTop: "1.3vh",
+        width: "200px"
+    },
+    dateSelectorOne: {
+        width: "70px",
+        height: "4vh",
+        border: "none",
+        paddingLeft: "3vh"
+
     },
     dateSelector: {
-    width: "100px",
-    height: "4vh"
+        width: "80px",
+        height: "4vh",
+        border: "none",
+        paddingLeft: "1vh"
     },
     searchButton: {
-    marginTop: "1vh",
-    height: "5vh"
+        height: "7vh",
+        borderColor: "#737373",
+        borderRadius: "0",
+        borderTopRightRadius: "10px",
+        borderBottomRightRadius: "10px"
     },
     searchLogo: {
         height: "3vh"
     },
     calendarLogo: {
         marginTop: ".8vh",
+        marginLeft: "1vh",
         height: "5vh"
     }
 }));
@@ -64,33 +88,36 @@ function Header() {
 
     return ( 
     <Container maxWidth="sm" className={classes.container}>
-        <img 
-            className={classes.calendarLogo} 
-            src={iconCalendar} 
-            alt="Calendar Logo" 
-        />
-        <div className={classes.datepickerContainer}>
-            <ValidatorForm instantValidate={false} className={classes.root} >
-                    <div className={classes.datePicker}>
-                        <DatePicker
-                            selected={startDate}
-                            className={classes.dateSelector}
-                            onChange={date => setStartDate(date)}
-                            selectsStart
-                            startDate={startDate}
-                            endDate={endDate}
-                        />
-                        <DatePicker
-                            selected={endDate}
-                            className={classes.dateSelector}
-                            onChange={date => setEndDate(date)}
-                            selectsEnd
-                            startDate={startDate}
-                            endDate={endDate}
-                            minDate={startDate}
-                        />
-                    </div>
-            </ValidatorForm>
+        <div className={classes.datepickerAndCalendarLogo}>
+            <img 
+                className={classes.calendarLogo} 
+                src={iconCalendar} 
+                alt="Calendar Logo" 
+            />
+            <div className={classes.datepickerContainer}>
+                <ValidatorForm instantValidate={false} className={classes.root} >
+                        <div className={classes.datePicker}>
+                            <DatePicker
+                                selected={startDate}
+                                className={classes.dateSelectorOne}
+                                onChange={date => setStartDate(date)}
+                                selectsStart
+                                startDate={startDate}
+                                endDate={endDate}
+                            />
+                            -
+                            <DatePicker
+                                selected={endDate}
+                                className={classes.dateSelector}
+                                onChange={date => setEndDate(date)}
+                                selectsEnd
+                                startDate={startDate}
+                                endDate={endDate}
+                                minDate={startDate}
+                            />
+                        </div>
+                </ValidatorForm>
+        </div>
         </div>
             <Button  
                 variant="outlined"
@@ -99,10 +126,10 @@ function Header() {
                 className={classes.searchButton}
             >
                 {<img 
-                className={classes.searchLogo} 
-                src={iconSearch} 
-                alt="Search Logo"
-            />}
+                    className={classes.searchLogo} 
+                    src={iconSearch} 
+                    alt="Search Logo"
+                />}
             </Button>
         
       </Container>
