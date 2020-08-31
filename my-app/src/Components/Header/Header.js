@@ -94,7 +94,6 @@ function Header() {
                 alt="Calendar Logo" 
             />
             <div className={classes.datepickerContainer}>
-                <ValidatorForm className={classes.root} >
                         <div className={classes.datePicker}>
                             <DatePicker
                                 selected={startDate}
@@ -104,7 +103,7 @@ function Header() {
                                 startDate={startDate}
                                 endDate={endDate}
                             />
-                            -
+                            <span>-</span>
                             <DatePicker
                                 selected={endDate}
                                 className={classes.dateSelector}
@@ -115,8 +114,7 @@ function Header() {
                                 minDate={startDate}
                             />
                         </div>
-                </ValidatorForm>
-        </div>
+            </div>
         </div>
             <Button  
                 variant="outlined"
