@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './EmailLine.css';
 import { makeStyles } from '@material-ui/core/styles';
 import EmailBody from './EmailBody'
 import clipIcon from '../../Assets/icons/icon_clip.svg'
@@ -13,6 +12,28 @@ const useStyles = makeStyles(() => ({
     clipIcon: {
         height: "3vh",
         marginRight: "1vh"
+    },
+    mail: {
+        display: "flex",
+        flexWrap: "wrap",
+        flexDirection: "row",
+        alignItems: "flex-start",
+        justifyContent: "space-between",
+        fontWeight: "100",
+        padding: ".2rem"
+    },
+    mailContent: {
+        width: "10%"
+    },
+    subject: {
+        width: "30%"
+    },
+    to: {
+        width: "10%"
+    },
+    date: {
+        fontWeight: 600,
+        width: "110px"
     }
 }));
 function EmailLine(props) {
@@ -42,18 +63,18 @@ function EmailLine(props) {
             )
         } else {
             return (
-                <div className="mail">
-                    <div className="mail-text email first">
+                <div className={classes.mail}>
+                    <div className={classes.mailContent}>
                         {props.from}
                     </div>
 
-                    <div className="mail-text email">
+                    <div className={classes.to}>
                         {props.to}
                     </div>
-                    <div className="mail-text subject">
+                    <div className={classes.subject}>
                         {props.subject}
                     </div>
-                    <div className="mail-text date">
+                    <div className={classes.date}>
                         {renderClip()}{props.date}
                     </div>
                 </div>
