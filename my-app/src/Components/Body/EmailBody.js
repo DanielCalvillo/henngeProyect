@@ -6,10 +6,7 @@ const useStyles = makeStyles(() => ({
     mail: {
         marginLeft: "0",
         marginTop: "1rem",
-        '&:hover': {
-            cursor: "pointer",
-            color: "black",
-        },
+        color: "black"
     },
     from: {
         marginBottom: "1rem"
