@@ -109,7 +109,7 @@ let mails = [
 
 const useStyles = makeStyles(() => ({
   mobile: {
-    margin: "1rem"
+    margin: "0rem"
   },
   container: {
     display: "flex",

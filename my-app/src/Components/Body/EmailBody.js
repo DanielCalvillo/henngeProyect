@@ -1,32 +1,8 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-
-
-const useStyles = makeStyles(() => ({
-    mail: {
-        marginLeft: "0",
-        marginTop: "1rem",
-        color: "black"
-    },
-    from: {
-        marginBottom: "1rem"
-    },
-    to: {
-        marginBottom: "1rem"
-    },
-    subject: {
-        marginBottom: "1rem"
-    },
-    content: {
-        marginBottom: "1rem"
-    },
-    date: {
-        marginBottom: "1rem"
-    }
-}));
+import EmailBodyStyles from '../../Assets/Styles/BodyStyles/EmailBodyStyles'
 
 function EmailBody(props) {
-    const classes = useStyles()
+    const classes = EmailBodyStyles()
     return (
         <div className={classes.mail}>
             <div className={classes.from}>
