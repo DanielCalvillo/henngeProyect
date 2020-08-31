@@ -2,6 +2,7 @@ import React from 'react'
 import EmailLineMobile from './EmailLineMobile';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../../Assets/icons/logo.png'
+
 const useStyles = makeStyles(() => ({
     noResults: {
         display: "flex",

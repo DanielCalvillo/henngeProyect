@@ -25,7 +25,7 @@ function EmailList(props) {
             <div className={classes.emailList}>
                     {props.mails.map( m => {
                         if (m.thread_id) {
-                            if (rendered_threads.includes(m.thread_id)) return;
+                            if (rendered_threads.includes(m.thread_id)) return; 
                             rendered_threads.push(m.thread_id);
                             const threads = props.mails.filter(_m => _m.thread_id === m.thread_id)
                             return (
