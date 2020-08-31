@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './Components/Header/Header'
 import EmailList from './Components/Body/EmailList.js'
-import './App.css'
 import ResultsTable from './Components/Header/ResultsTable/ResultsTable';
 import ResultNumber from './Components/Header/ResultNumber/ResultNumber';
 import ResultsTableMobile from './Components/MobileBody/ResultsTableMobile';
@@ -103,8 +102,6 @@ let mails = [
   }
 ]
 
-const result = 10
-
 const useStyles = makeStyles(() => ({
   mobile: {
     margin: "0"
@@ -118,31 +115,20 @@ const useStyles = makeStyles(() => ({
   },
   logo: {
     height: "30vh",
+  },
+  app: {
+    margin: "3rem"
   }
 }));
 
 function App() {
   const classes = useStyles()
-  const renderEmails = (results) => {
-    if(!results) {
       return (
-        <div className="App">
-          <Header />
-          <ResultNumber results={result}/>
-          <hr/>
-          <div className={classes.container}>
-            <img src={logo} className={classes.logo} alt="logo"/>
-          </div>
-        </div>
-      )
-    } else {
-      return (
-        <div className={classes.mobile}>
-            <Header />
-            <ResultNumber results={result}/>
             <ResponsiveLayout
               renderDesktop={() => 
-                <div> 
+                <div className={classes.app}> 
+                  <Header />
+                  <ResultNumber results={10}/>
                   <hr/>
                   <ResultsTable />
                   <hr />
@@ -150,7 +136,9 @@ function App() {
                 </div>
               }
               renderMobile={() => 
-                <div>
+                <div className={classes.mobile}>
+                  <Header />
+                  <ResultNumber results={10}/>
                   <hr/>
                   <ResultsTableMobile />
                   <hr />
@@ -158,14 +146,7 @@ function App() {
                 </div>
               }
             />
-        </div>
       )
-    }
-  } 
-
-  return (
-      renderEmails(result)
-    );
-}
+} 
 
 export default App;

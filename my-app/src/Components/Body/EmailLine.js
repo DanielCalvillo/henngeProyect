@@ -10,8 +10,8 @@ const useStyles = makeStyles(() => ({
         }
     },
     clipIcon: {
-        height: "3vh",
-        marginRight: "1vh"
+        height: "2vh",
+        marginRight: "1rem"
     },
     mail: {
         display: "flex",
@@ -33,7 +33,8 @@ const useStyles = makeStyles(() => ({
     },
     date: {
         fontWeight: 600,
-        width: "110px"
+        width: "140px",
+        textAlign: "right"
     }
 }));
 function EmailLine(props) {
