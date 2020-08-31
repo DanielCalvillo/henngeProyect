@@ -1,9 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import iconCalendar from '../../Assets/icons/icon_calender.svg';
 import iconSearch from '../../Assets/icons/icon_search.svg';
-import { ValidatorForm } from "react-material-ui-form-validator";
-// import useInputState from "../../hooks/useInputState"
 import Container from '@material-ui/core/Container';
 import DatePicker from "react-datepicker";
 
@@ -63,18 +61,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Header() {
-    const classes = useStyles();
-
-    // const [value, handleChange, reset] = useInputState("")
-
-    useEffect( () => {
-        console.log("entrando al efecto")
-        ValidatorForm.addValidationRule("isColorNameUnique", value => 
-            this.props.colors.every(
-                ({ name }) => name.toLowerCase() !==  value.toLowerCase()
-            )
-        );
-    })
+    const classes = useStyles()
 
     const handleSubmit = (evt) => {
         evt.preventDefault();

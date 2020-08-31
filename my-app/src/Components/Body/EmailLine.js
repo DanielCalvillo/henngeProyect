@@ -6,7 +6,7 @@ import EmailLineStyles from '../../Assets/Styles/BodyStyles/EmailLineStyles'
 function EmailLine(props) {
     const classes = EmailLineStyles()
     const [deployed, changeDeployed] = useState(false);
-    
+
     const renderClip = () => {
         if (props.clipped) {
             return (
@@ -48,79 +48,59 @@ function EmailLine(props) {
         }
     }
 
-        if (deployed && props.thread){
-            return (
-                <div onClick={handleClick} className={classes.container}>
-                    <div className={classes.mail}>
-                        <div className={classes.mailContent}>
-                            {props.from}
-                        </div>
-                        <div className={classes.to}>
-                            {props.to}
-                        </div>
-                        <div className={classes.subject}>
-                            {props.subject}
-                        </div>
-                        <div className={classes.date}>
-                            {renderClip()}{props.date}
-                        </div>
-                    </div>
-                    {renderThreadMails()}
-                    
-                </div>
-            )
-        } else if (deployed) {
-            return (
-                <div onClick={handleClick} className={classes.container}>
-                    <div className={classes.mail}>
-                        <div className={classes.mailContent}>
-                            {props.from}
-                        </div>
-                        <div className={classes.to}>
-                            {props.to}
-                        </div>
-                        <div className={classes.subject}>
-                            {props.subject}
-                        </div>
-                        <div className={classes.date}>
-                            {renderClip()}{props.date}
-                        </div>
-                    </div>
-                    <EmailBody 
-                        key={props.id} 
-                        from={props.from} 
-                        to={props.to} 
-                        subject={props.subject} 
-                        date={props.date}
-                        extraNum={props.extraNum}
-                        clipped={props.clipped}
-                    />
-                    {renderThreadMails()}
+    const renderEmailContent = (isThread) => (
+        <div className={classes.mail}>
+            <div className={classes.mailContent}>
+                {props.from}
+            </div>
+            <div className={classes.to}>
+                {props.to}
+            </div>
+            {isThread ? <p className={classes.subThreads}>{emailThread() ? `+${emailThread()}` : ""}</p> : null}
+            <div className={classes.subject}>
+                {props.subject}
+            </div>
+            <div className={classes.date}>
+                {renderClip()}{props.date}
+            </div>
+        </div>
+    )
 
-                </div>
-            )
-        }
-        else {
-            return (
-                <div onClick={handleClick} className={classes.container}>
-                    <div className={classes.mail}>
-                        <div className={classes.mailContent}>
-                            {props.from}
-                        </div>
-                        <div className={classes.to}>
-                            {props.to}
-                        </div>
-                        <p className={classes.subThreads}>{emailThread() ? `+${emailThread()}` : ""}</p>
-                        <div className={classes.subject}>
-                            {props.subject}
-                        </div>
-                        <div className={classes.date}>
-                            {renderClip()}{props.date}
-                        </div>
-                    </div>
-                </div>
-            )
-        }
+    const renderEmailBody = () => (
+        <EmailBody 
+            key={props.id} 
+            from={props.from} 
+            to={props.to} 
+            subject={props.subject} 
+            date={props.date}
+            extraNum={props.extraNum}
+            clipped={props.clipped}
+        />
+    )
+
+    if (deployed && props.thread){
+        return (
+            <div onClick={handleClick} className={classes.container}>
+                {renderEmailContent()}
+                {renderThreadMails()}
+            </div>
+        )
+    } else if (deployed) {
+        return (
+            <div onClick={handleClick} className={classes.container}>
+                {renderEmailContent()}
+                {renderEmailBody()}
+                {renderThreadMails()}
+            </div>
+        )
+    }
+    else {
+        return (
+            <div onClick={handleClick} className={classes.container}>
+                {renderEmailContent(true)}
+            </div>
+        )
+    }
 }
 
 export default EmailLine
