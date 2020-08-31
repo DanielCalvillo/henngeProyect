@@ -47,6 +47,12 @@ const HeaderStyles = makeStyles((theme) => ({
         marginLeft: "1rem",
         paddingBottom: "0rem",
         height: "2rem"
+    },
+    datePicker: {
+        display: "flex",
+        alignItems: "center",
+        flexWrap: "nowrap",
+        justifyContent: "centre"
     }
 }));
 
