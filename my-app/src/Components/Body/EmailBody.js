@@ -4,7 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
     mail: {
-        marginLeft: "2vh"
+        marginLeft: "0",
+        marginTop: "1rem"
     },
     from: {
         marginBottom: "1vh"

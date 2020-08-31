@@ -61,6 +61,21 @@ function EmailLine(props) {
     const deployEmail = () => {
         if (deployed) {
             return (
+                <>
+                <div className={classes.mail}>
+                    <div className={classes.mailContent}>
+                        {props.from}
+                    </div>
+                    <div className={classes.to}>
+                        {props.to}
+                    </div>
+                    <div className={classes.subject}>
+                        {props.subject}
+                    </div>
+                    <div className={classes.date}>
+                        {renderClip()}{props.date}
+                    </div>
+                </div>
                 <EmailBody 
                     key={props.id} 
                     from={props.from} 
@@ -70,6 +85,7 @@ function EmailLine(props) {
                     extraNum={props.extraNum}
                     clipped={props.clipped}
                 />
+                </>
             )
         } else {
             return (
