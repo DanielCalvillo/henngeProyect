@@ -5,22 +5,26 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(() => ({
     mail: {
         marginLeft: "0",
-        marginTop: "1rem"
+        marginTop: "1rem",
+        '&:hover': {
+            cursor: "pointer",
+            color: "black",
+        },
     },
     from: {
-        marginBottom: "1vh"
+        marginBottom: "1rem"
     },
     to: {
-        marginBottom: "1vh"
+        marginBottom: "1rem"
     },
     subject: {
-        marginBottom: "1vh"
+        marginBottom: "1rem"
     },
     content: {
-        marginBottom: "1vh"
+        marginBottom: "1rem"
     },
     date: {
-        marginBottom: "1vh"
+        marginBottom: "1rem"
     }
 }));
 
