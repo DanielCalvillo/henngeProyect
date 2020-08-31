@@ -15,11 +15,9 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
     container: {
         display: "flex",
-        width: "310px",
-        paddingRight:"1vh",
         marginLeft: "0",
-        marginTop: "6vh",
-        marginBottom: "4vh"
+        marginTop: "2rem",
+        marginBottom: "2rem"
     },
     datepickerAndCalendarLogo: {
         display: "flex",
@@ -27,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
         borderTopLeftRadius: "10px",
         borderBottomLeftRadius: "10px",
         borderColor: "#9c9c9c",
-        borderWidth: "thin" 
+        borderWidth: "thin",
+        paddingBottom: ".5rem" 
     },
     datepickerContainer: {
         marginTop: "1.3vh",
@@ -35,19 +34,18 @@ const useStyles = makeStyles((theme) => ({
     },
     dateSelectorOne: {
         width: "70px",
-        height: "4vh",
+        height: "rem",
         border: "none",
         paddingLeft: "3vh"
 
     },
     dateSelector: {
         width: "80px",
-        height: "4vh",
+        height: "2rem",
         border: "none",
-        paddingLeft: "1vh"
+        paddingLeft: ".5rem"
     },
     searchButton: {
-        height: "7vh",
         borderColor: "#737373",
         borderRadius: "0",
         borderTopRightRadius: "10px",
@@ -57,8 +55,9 @@ const useStyles = makeStyles((theme) => ({
         height: "1.5rem"
     },
     calendarLogo: {
-        marginTop: "1rem",
+        marginTop: ".8rem",
         marginLeft: "1rem",
+        paddingBottom: "0rem",
         height: "2rem"
     }
 }));
