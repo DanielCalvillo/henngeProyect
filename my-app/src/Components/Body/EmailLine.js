@@ -51,12 +51,11 @@ const useStyles = makeStyles(() => ({
         color: "white",
         paddingRight: ".2rem",
         paddingLeft: ".2rem",
-        borderRadius: "5px"
+        borderRadius: "5px",
+        fontWeight: "bold"
     }
 }));
 function EmailLine(props) {
-
-    console.log(props.thread)
     const [deployed, changeDeployed] = useState(false);
     const renderClip = () => {
         if (props.clipped) {
@@ -78,36 +77,81 @@ function EmailLine(props) {
         }
     }
 
-        const classes = useStyles()
-        if (deployed){
-            return (
-                <div onClick={handleClick} className={classes.container}>
-                <div className={classes.mail}>
-                    <div className={classes.mailContent}>
-                        {props.from}
-                    </div>
-                    <div className={classes.to}>
-                        {props.to}
-                    </div>
-                    <div className={classes.subject}>
-                        {props.subject}
-                    </div>
-                    <div className={classes.date}>
-                        {renderClip()}{props.date}
-                    </div>
-                </div>
-                <EmailBody 
-                    key={props.id} 
-                    from={props.from} 
-                    to={props.to} 
-                    subject={props.subject} 
-                    date={props.date}
-                    extraNum={props.extraNum}
-                    clipped={props.clipped}
-                />
-                </div>
+    const renderThreadMails = () => {
+        if (props.thread) {
+            return props.thread.map((threadMail) => 
+                <>
+                    <hr />
+                    <EmailBody
+                        key={props.id} 
+                        from={props.from} 
+                        to={props.to} 
+                        subject={props.subject} 
+                        date={props.date}
+                        extraNum={props.extraNum}
+                        clipped={props.clipped}
+                    />
+                </>
             )
         } else {
+            return null
+        }
+    }
+
+        const classes = useStyles()
+        if (deployed && props.thread){
+            return (
+                <div onClick={handleClick} className={classes.container}>
+                    <div className={classes.mail}>
+                        <div className={classes.mailContent}>
+                            {props.from}
+                        </div>
+                        <div className={classes.to}>
+                            {props.to}
+                        </div>
+                        <div className={classes.subject}>
+                            {props.subject}
+                        </div>
+                        <div className={classes.date}>
+                            {renderClip()}{props.date}
+                        </div>
+                    </div>
+                    {renderThreadMails()}
+                    
+                </div>
+            )
+        } else if (deployed) {
+            return (
+                <div onClick={handleClick} className={classes.container}>
+                    <div className={classes.mail}>
+                        <div className={classes.mailContent}>
+                            {props.from}
+                        </div>
+                        <div className={classes.to}>
+                            {props.to}
+                        </div>
+                        <div className={classes.subject}>
+                            {props.subject}
+                        </div>
+                        <div className={classes.date}>
+                            {renderClip()}{props.date}
+                        </div>
+                    </div>
+                    <EmailBody 
+                        key={props.id} 
+                        from={props.from} 
+                        to={props.to} 
+                        subject={props.subject} 
+                        date={props.date}
+                        extraNum={props.extraNum}
+                        clipped={props.clipped}
+                    />
+                    {renderThreadMails()}
+
+                </div>
+            )
+        }
+        else {
             return (
                 <div onClick={handleClick} className={classes.container}>
                     <div className={classes.mail}>

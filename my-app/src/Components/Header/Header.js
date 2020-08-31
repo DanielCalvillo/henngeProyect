@@ -95,7 +95,7 @@ function Header() {
                 alt="Calendar Logo" 
             />
             <div className={classes.datepickerContainer}>
-                <ValidatorForm instantValidate={false} className={classes.root} >
+                <ValidatorForm className={classes.root} >
                         <div className={classes.datePicker}>
                             <DatePicker
                                 selected={startDate}
