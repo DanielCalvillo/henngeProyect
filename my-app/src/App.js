@@ -68,11 +68,8 @@ function App() {
   } 
 
   return (
-    <div>
-    {/* if the Results variable is 0, represents no results on the search of emails */}
-      {renderEmails(result)}
-    </div>
-  );
+      renderEmails(result)
+    );
 }
 
 export default App;
