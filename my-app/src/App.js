@@ -10,9 +10,105 @@ import EmailListMobile from './Components/MobileBody/EmailListMobile';
 import logo from './Assets/icons/logo.png'
 import { makeStyles } from '@material-ui/core/styles';
 
+let mails = [
+  {
+      id: 1234,
+      from: 'aaa@example.com', 
+      to: "zzz.zzz@example.com", 
+      subject: "[HR-888] Notice of official announcement",
+      date: "0:20",
+      extraNum: 0,
+      clipped: true
+  },
+  {
+      id: 1235,
+      from: 'bbb.bbb@example.com', 
+      to: "zzz.zzz@example.com", 
+      subject: "[HR-888] Notice of official announcement",
+      date: "0:10",
+      extraNum: 0,
+      clipped: true
+  },
+  {
+      id: 1236,
+      from: 'ccc@example.com', 
+      to: "zzz.zzz@example.com", 
+      subject: "[HR-888] Notice of official announcement",
+      date: "0:00",
+      extraNum: 0,
+      clipped: true
+  },
+  {
+      id: 1237,
+      from: 'ddd.ddd@example.com', 
+      to: "zzz.zzz@example.com", 
+      subject: "[HR-888] Notice of official announcement",
+      date: "Jan 01",
+      extraNum: 0,
+      clipped: true
+  },
+  {
+      id: 1238,
+      from: 'hhh@example.com', 
+      to: "zzz.zzz@example.com", 
+      subject: "[HR-888] Notice of official announcement",
+      date: "Jan 01",
+      extraNum: 0,
+      clipped: true
+  },
+  {
+      id: 1239,
+      from: 'aaa@example.com', 
+      to: "zzz.zzz@example.com", 
+      subject: "[HR-888] Notice of official announcement",
+      date: "Jan 01",
+      extraNum: 0,
+      clipped: true
+  },
+  {
+      id: 1244,
+      from: 'aaa@example.com', 
+      to: "zzz.zzz@example.com", 
+      subject: "[HR-888] Notice of official announcement",
+      date: "Jan 01",
+      extraNum: 0,
+      clipped: true
+  },
+  {
+      id: 1334,
+      from: 'aaa@example.com', 
+      to: "zzz.zzz@example.com", 
+      subject: "[HR-888] Notice of official announcement",
+      date: "Jan 01",
+      extraNum: 0,
+      clipped: true
+  },
+  {
+      id: 1254,
+      from: 'aaa@example.com', 
+      to: "zzz.zzz@example.com", 
+      subject: "[HR-888] Notice of official announcement",
+      date: "2019/12/31",
+      extraNum: 4,
+      clipped: true
+  },
+  {
+      id: 3234,
+      from: 'aaa@example.com', 
+      to: "zzz.zzz@example.com", 
+      subject: "[HR-888] Notice of official announcement",
+      date: "2019/12/31",
+      extraNum: 3,
+      clipped: true
+  }
+]
+
 const result = 10
 
 const useStyles = makeStyles(() => ({
+  mobile: {
+    margin: "0"
+  },
   container: {
     display: "flex",
     width: "1000px",
@@ -41,7 +137,7 @@ function App() {
       )
     } else {
       return (
-        <div className="App">
+        <div className={classes.mobile}>
             <Header />
             <ResultNumber results={result}/>
             <ResponsiveLayout
@@ -50,7 +146,7 @@ function App() {
                   <hr/>
                   <ResultsTable />
                   <hr />
-                  <EmailList />
+                  <EmailList mails={mails}/>
                 </div>
               }
               renderMobile={() => 

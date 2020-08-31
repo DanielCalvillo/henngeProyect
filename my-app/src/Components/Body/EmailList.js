@@ -1,109 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import EmailLine from './EmailLine';
 
-import "./EmailList.css"
-
-class EmailList extends Component {
-
-    render() {
-
-        let mails = [
-            {
-                id: 1234,
-                from: 'aaa@example.com', 
-                to: "zzz.zzz@example.com", 
-                subject: "[HR-888] Notice of official announcement",
-                date: "0:20",
-                extraNum: 0,
-                clipped: true
-            },
-            {
-                id: 1235,
-                from: 'bbb.bbb@example.com', 
-                to: "zzz.zzz@example.com", 
-                subject: "[HR-888] Notice of official announcement",
-                date: "0:10",
-                extraNum: 0,
-                clipped: true
-            },
-            {
-                id: 1236,
-                from: 'ccc@example.com', 
-                to: "zzz.zzz@example.com", 
-                subject: "[HR-888] Notice of official announcement",
-                date: "0:00",
-                extraNum: 0,
-                clipped: true
-            },
-            {
-                id: 1237,
-                from: 'ddd.ddd@example.com', 
-                to: "zzz.zzz@example.com", 
-                subject: "[HR-888] Notice of official announcement",
-                date: "Jan 01",
-                extraNum: 0,
-                clipped: true
-            },
-            {
-                id: 1238,
-                from: 'hhh@example.com', 
-                to: "zzz.zzz@example.com", 
-                subject: "[HR-888] Notice of official announcement",
-                date: "Jan 01",
-                extraNum: 0,
-                clipped: true
-            },
-            {
-                id: 1239,
-                from: 'aaa@example.com', 
-                to: "zzz.zzz@example.com", 
-                subject: "[HR-888] Notice of official announcement",
-                date: "Jan 01",
-                extraNum: 0,
-                clipped: true
-            },
-            {
-                id: 1244,
-                from: 'aaa@example.com', 
-                to: "zzz.zzz@example.com", 
-                subject: "[HR-888] Notice of official announcement",
-                date: "Jan 01",
-                extraNum: 0,
-                clipped: true
-            },
-            {
-                id: 1334,
-                from: 'aaa@example.com', 
-                to: "zzz.zzz@example.com", 
-                subject: "[HR-888] Notice of official announcement",
-                date: "Jan 01",
-                extraNum: 0,
-                clipped: true
-            },
-            {
-                id: 1254,
-                from: 'aaa@example.com', 
-                to: "zzz.zzz@example.com", 
-                subject: "[HR-888] Notice of official announcement",
-                date: "2019/12/31",
-                extraNum: 4,
-                clipped: true
-            },
-            {
-                id: 3234,
-                from: 'aaa@example.com', 
-                to: "zzz.zzz@example.com", 
-                subject: "[HR-888] Notice of official announcement",
-                date: "2019/12/31",
-                extraNum: 3,
-                clipped: true
-            }
-        ]
+function EmailList(props) {
 
         return(
-            <div className="email-list">
-                <div className="email-list-emails">
-                    {mails.map( m => (
+            <div>
+                <div>
+                    {props.mails.map( m => (
                         <>
                             <EmailLine 
                                 key={m.id} 
@@ -120,6 +23,5 @@ class EmailList extends Component {
                 </div>
             </div>
         )
-    }
 }
 export default EmailList
