@@ -19,22 +19,41 @@ const useStyles = makeStyles(() => ({
 
 function EmailList(props) {
     const classes = useStyles()
+    const rendered_threads = [];
     if (props.results) {
         return (
             <div className={classes.emailList}>
-                    {props.mails.map( m => (
-                        <>
-                            <EmailLine 
-                                key={m.id} 
-                                from={m.from} 
-                                to={m.to} 
-                                subject={m.subject} 
-                                date={m.date}
-                                extraNum={m.extraNum}
-                                clipped={m.clipped}
-                            />
-                        </>
-                    ))}
+                    {props.mails.map( m => {
+                        if (m.thread_id) {
+                            if (rendered_threads.includes(m.thread_id)) return;
+                            rendered_threads.push(m.thread_id);
+                            const threads = props.mails.filter(_m => _m.thread_id === m.thread_id)
+                            return (
+                                <EmailLine 
+                                    key={m.id} 
+                                    from={m.from} 
+                                    to={m.to} 
+                                    subject={m.subject} 
+                                    date={m.date}
+                                    thread={threads}
+                                    clipped={m.clipped}
+                                />
+                            )
+                            
+                        } else { 
+                            return (
+                                <EmailLine 
+                                    key={m.id} 
+                                    from={m.from} 
+                                    to={m.to} 
+                                    subject={m.subject} 
+                                    date={m.date}
+                                    extraNum={m.extraNum}
+                                    clipped={m.clipped}
+                                />
+                            )
+                        }
+                    })}
             </div>
         )
     } else {

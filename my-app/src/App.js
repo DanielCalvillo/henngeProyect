@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 let mails = [
   {
       id: 1234,
+      thread_id: 345,
       from: 'aaa@example.com', 
       to: "zzz.zzz@example.com", 
       subject: "[HR-888] Notice of official announcement",
@@ -21,6 +22,7 @@ let mails = [
   },
   {
       id: 1235,
+      thread_id: 345,
       from: 'bbb.bbb@example.com', 
       to: "zzz.zzz@example.com", 
       subject: "[HR-888] Notice of official announcement",
@@ -39,6 +41,7 @@ let mails = [
   },
   {
       id: 1237,
+      thread_id: 346,
       from: 'ddd.ddd@example.com', 
       to: "zzz.zzz@example.com", 
       subject: "[HR-888] Notice of official announcement",
@@ -48,6 +51,7 @@ let mails = [
   },
   {
       id: 1238,
+      thread_id: 346,
       from: 'hhh@example.com', 
       to: "zzz.zzz@example.com", 
       subject: "[HR-888] Notice of official announcement",
@@ -93,6 +97,7 @@ let mails = [
   },
   {
       id: 3234,
+      thread_id: 346,
       from: 'aaa@example.com', 
       to: "zzz.zzz@example.com", 
       subject: "[HR-888] Notice of official announcement",

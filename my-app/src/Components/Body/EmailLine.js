@@ -34,7 +34,7 @@ const useStyles = makeStyles(() => ({
         width: "10%"
     },
     subject: {
-        width: "30%"
+        width: "30%",
     },
     to: {
         width: "10%"
@@ -44,12 +44,20 @@ const useStyles = makeStyles(() => ({
         width: "140px",
         textAlign: "left",
         fontWeight: "bold"
+    },
+    subThreads: {
+        margin: "0",
+        backgroundColor: "#888888",
+        color: "white",
+        paddingRight: ".2rem",
+        paddingLeft: ".2rem",
+        borderRadius: "5px"
     }
 }));
 function EmailLine(props) {
 
+    console.log(props.thread)
     const [deployed, changeDeployed] = useState(false);
-
     const renderClip = () => {
         if (props.clipped) {
             return (
@@ -57,11 +65,23 @@ function EmailLine(props) {
             )
         }
     }
+    const handleClick =(evt) => {
+        changeDeployed(!deployed)
+    }
 
-    const deployEmail = () => {
-        if (deployed) {
+    const emailThread = () => {
+        if (props.thread) {
+            const extra = props.thread.length
+            return extra
+        } else {
+            return null
+        }
+    }
+
+        const classes = useStyles()
+        if (deployed){
             return (
-                <>
+                <div onClick={handleClick} className={classes.container}>
                 <div className={classes.mail}>
                     <div className={classes.mailContent}>
                         {props.from}
@@ -85,39 +105,29 @@ function EmailLine(props) {
                     extraNum={props.extraNum}
                     clipped={props.clipped}
                 />
-                </>
+                </div>
             )
         } else {
             return (
-                <div className={classes.mail}>
-                    <div className={classes.mailContent}>
-                        {props.from}
-                    </div>
-
-                    <div className={classes.to}>
-                        {props.to}
-                    </div>
-                    <div className={classes.subject}>
-                        {props.subject}
-                    </div>
-                    <div className={classes.date}>
-                        {renderClip()}{props.date}
+                <div onClick={handleClick} className={classes.container}>
+                    <div className={classes.mail}>
+                        <div className={classes.mailContent}>
+                            {props.from}
+                        </div>
+                        <div className={classes.to}>
+                            {props.to}
+                        </div>
+                        <p className={classes.subThreads}>{emailThread() ? `+${emailThread()}` : ""}</p>
+                        <div className={classes.subject}>
+                            {props.subject}
+                        </div>
+                        <div className={classes.date}>
+                            {renderClip()}{props.date}
+                        </div>
                     </div>
                 </div>
             )
         }
-    }
-
-    const handleClick =(evt) => {
-        changeDeployed(!deployed)
-    }
-
-        const classes = useStyles()
-        return (
-            <div onClick={handleClick} className={classes.container}>
-                {deployEmail()}
-            </div>
-        )
 }
 
 export default EmailLine

@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
         borderTop: "1px solid #9c9c9c",
         paddingBottom: "1rem",
         paddingTop: "1rem",
-        backgroundColor: "#e8e8e8",
+        backgroundColor: "#f5f5f5",
         paddingLeft: "1rem"
     },
     from: {
@@ -28,19 +28,19 @@ const useStyles = makeStyles(() => ({
     },
     subject: {
         width: "30%",
-        marginLeft: "3rem",
+        marginLeft: "11rem",
         paddingLeft: "1.5rem"
     },
     to: {
         width: "20%",
-        marginLeft: "2.5rem",
+        marginLeft: "-1rem",
         paddingLeft:"1.5rem"
     },
     date: {
         fontWeight: "bold",
         width: "5%",
         textAlign: "left",
-        paddingLeft: "15rem",
+        paddingLeft: "10rem",
     }
 }));
 
@@ -56,6 +56,7 @@ function ResultsTable(props) {
                 <div className={classes.to}>
                     To
                 </div>
+                
                 <div className={classes.subject} >
                     Subject
                 </div>
