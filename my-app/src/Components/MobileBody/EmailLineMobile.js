@@ -39,6 +39,24 @@ const useStyles = makeStyles(() => ({
     },
     fromEmail: {
         marginBottom: ".3rem"
+    },
+    toEmail: {
+        display: "flex"
+    },
+    subThreads: {
+        margin: "0",
+        backgroundColor: "#888888",
+        color: "white",
+        borderRadius: "5px",
+        fontWeight: "bold",
+        width: "1.5rem",
+        alignContent: "right",
+        paddingLeft: ".2rem"
+    },
+    dateAndThreadContainer: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-end"
     }
 }));
 
@@ -58,56 +76,147 @@ function EmailLineMobile(props) {
         }
     }
 
-    const deployEmail = () => {
-        if (deployed) {
+    const emailThread = () => {
+        if (props.thread) {
+            const extra = props.thread.length
+            return extra
+        } else {
+            return null
+        }
+    }
+
+    const renderThreadMail = () => {
+        if(props.thread) {
+            return props.thread.map(() => 
+                <>
+                    <hr/>
+                    <EmailBodyMobile 
+                        key={props.id} 
+                        from={props.from} 
+                        to={props.to} 
+                        subject={props.subject} 
+                        date={props.date}
+                        extraNum={props.extraNum}
+                        clipped={props.clipped}
+                    />
+                </>
+            )
+        } else {
+            return null
+        }
+    }
+
+        if (deployed && props.thread) {
             return (
-                <EmailBodyMobile 
-                    key={props.id} 
-                    from={props.from} 
-                    to={props.to} 
-                    subject={props.subject} 
-                    date={props.date}
-                    extraNum={props.extraNum}
-                    clipped={props.clipped}
-                />
+                <div onClick={handleClick} className={classes.container}>
+                    <div className={classes.mail}>
+                        <div className={classes.emailAndIconContainer}>
+                            <div className={classes.secondContainer}>
+                                <img 
+                                    className={classes.mailIcon} 
+                                    src={mailIcon} 
+                                    alt="Mail Icon" 
+                                />
+                                <div className={classes.emailContainer}>
+                                    <div className={classes.fromEmail}>
+                                        {props.from}
+                                    </div>
+                                    <div className={classes.toEmail}>
+                                        {props.to}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={classes.dateAndThreadContainer}>
+                                <div className={classes.date}>
+                                    {renderClip()}{props.date}
+                                </div>
+                            </div>
+                        </div>
+                        <div className={classes.subject}>
+                            {props.subject}
+                        </div>
+                    </div>
+                    {renderThreadMail()}
+
+                </div> 
+            )
+        } else if (deployed) {
+            return (
+                <div onClick={handleClick} className={classes.container}>
+                    <div className={classes.mail}>
+                        <div className={classes.emailAndIconContainer}>
+                            <div className={classes.secondContainer}>
+                                <img 
+                                    className={classes.mailIcon} 
+                                    src={mailIcon} 
+                                    alt="Mail Icon" 
+                                />
+                                <div className={classes.emailContainer}>
+                                    <div className={classes.fromEmail}>
+                                        {props.from}
+                                    </div>
+                                    <div className={classes.toEmail}>
+                                        {props.to}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={classes.dateAndThreadContainer}>
+                                <div className={classes.date}>
+                                    {renderClip()}{props.date}
+                                </div>
+                                <p className={classes.subThreads}>{emailThread() ? `+${emailThread()}` : ""}</p>
+                            </div>
+                        </div>
+                        <div className={classes.subject}>
+                            {props.subject}
+                        </div>
+                    </div>
+                    <EmailBodyMobile 
+                        key={props.id} 
+                        from={props.from} 
+                        to={props.to} 
+                        subject={props.subject} 
+                        date={props.date}
+                        extraNum={props.extraNum}
+                        clipped={props.clipped}
+                    />
+                    
+                </div> 
             )
         } else {
             return (
-                <div className={classes.mail}>
-                    <div className={classes.emailAndIconContainer}>
-                        <div className={classes.secondContainer}>
-                            <img 
-                                className={classes.mailIcon} 
-                                src={mailIcon} 
-                                alt="Mail Icon" 
-                            />
-                            <div className={classes.emailContainer}>
-                                <div className={classes.fromEmail}>
-                                    {props.from}
-                                </div>
-                                <div className={classes.toEmail}>
-                                    {props.to}
+                <div onClick={handleClick} className={classes.container}>
+                    <div className={classes.mail}>
+                        <div className={classes.emailAndIconContainer}>
+                            <div className={classes.secondContainer}>
+                                <img 
+                                    className={classes.mailIcon} 
+                                    src={mailIcon} 
+                                    alt="Mail Icon" 
+                                />
+                                <div className={classes.emailContainer}>
+                                    <div className={classes.fromEmail}>
+                                        {props.from}
+                                    </div>
+                                    <div className={classes.toEmail}>
+                                        {props.to}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <div className={classes.date}>
-                                {renderClip()}{props.date}
+                            <div className={classes.dateAndThreadContainer}>
+                                <div className={classes.date}>
+                                    {renderClip()}{props.date}
+                                </div>
+                                <p className={classes.subThreads}>{emailThread() ? `+${emailThread()}` : ""}</p>
                             </div>
                         </div>
-                    </div>
-                    <div className={classes.subject}>
-                        {props.subject}
+                        <div className={classes.subject}>
+                            {props.subject}
+                        </div>
                     </div>
                 </div>
             )
         }
-    }
-        return (
-            <div onClick={handleClick} className={classes.container}>
-                {deployEmail()}
-            </div>        
-        )
 }
 
 export default EmailLineMobile
