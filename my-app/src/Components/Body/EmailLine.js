@@ -13,7 +13,6 @@ const useStyles = makeStyles(() => ({
             backgroundColor: "#f6f8fa"
         },
         borderBottom: "1px solid #9c9c9c",
-        borderTop: "1px solid #9c9c9c",
         paddingBottom: "1rem",
         paddingTop: "1rem",
         paddingLeft: "1rem"
