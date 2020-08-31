@@ -21,7 +21,7 @@ function EmailList(props) {
     const classes = useStyles()
     if (props.results) {
         return (
-            <div>
+            <div className={classes.emailList}>
                     {props.mails.map( m => (
                         <>
                             <EmailLine 

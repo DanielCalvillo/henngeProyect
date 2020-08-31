@@ -26,18 +26,19 @@ const useStyles = makeStyles(() => ({
     },
     from: {
         width: "23%",
+        marginLeft: ".6rem"
     },
     subject: {
-        width: "20%",
-        marginLeft: "2rem"
+        width: "20%"
     },
     to: {
         width: "11%",
-        marginLeft: "2.5rem"
+        marginRight: "0"
     },
     date: {
         fontWeight: 600,
-        width: "10%"
+        width: "10%",
+        marginRight: ".6rem"
     }
 }));
 

@@ -5,8 +5,11 @@ import clipIcon from '../../Assets/icons/icon_clip.svg'
 
 const useStyles = makeStyles(() => ({
     container: {
+        paddingLeft: ".5rem",
+        paddingRight: ".5rem",
         '&:hover': {
-            cursor: "pointer"
+            cursor: "pointer",
+            color: "blue"
         }
     },
     clipIcon: {
@@ -34,7 +37,8 @@ const useStyles = makeStyles(() => ({
     date: {
         fontWeight: 600,
         width: "140px",
-        textAlign: "right"
+        textAlign: "left",
+        fontWeight: "bold"
     }
 }));
 function EmailLine(props) {

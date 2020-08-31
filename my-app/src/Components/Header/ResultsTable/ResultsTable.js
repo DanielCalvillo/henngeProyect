@@ -21,23 +21,27 @@ const useStyles = makeStyles(() => ({
         borderTop: "1px solid #9c9c9c",
         paddingBottom: "1rem",
         paddingTop: "1rem",
-        backgroundColor: "#e8e8e8"
+        backgroundColor: "#e8e8e8",
+        paddingLeft: "1rem"
     },
     from: {
         width: "20%",
     },
     subject: {
         width: "30%",
-        marginLeft: "3rem"
+        marginLeft: "3rem",
+        paddingLeft: "1.5rem"
     },
     to: {
         width: "20%",
-        marginLeft: "2.5rem"
+        marginLeft: "2.5rem",
+        paddingLeft:"1.5rem"
     },
     date: {
-        fontWeight: 600,
-        width: "20%",
-        textAlign: "right"
+        fontWeight: "bold",
+        width: "5%",
+        textAlign: "left",
+        paddingLeft: "15rem",
     }
 }));
 

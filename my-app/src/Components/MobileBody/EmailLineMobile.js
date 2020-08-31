@@ -5,9 +5,13 @@ import EmailBodyMobile from './EmailBodyMobile'
 import clipIcon from '../../Assets/icons/icon_clip.svg'
 
 const useStyles = makeStyles(() => ({
+    container: {
+        marginLeft: ".5rem",
+        marginRight: ".5rem"
+    },
     mail: {
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
     },
     emailAndIconContainer: {
         display: "flex",
@@ -18,20 +22,23 @@ const useStyles = makeStyles(() => ({
         display: "flex"
     },
     emailContainer: {
-        marginTop: "1vh",
-        marginBottom: "2vh",
+        marginTop: "0rem",
+        marginBottom: ".7rem",
         marginLeft: "2vh"
     },
     mailIcon: {
-        marginTop: "1.8vh",
-        height: "6vh"
+        marginTop: ".5rem",
+        height: "2.5rem"
     },
     date: {
         justifyContent: "flex-end"
     },
     clipIcon: {
-        height: "3vh",
-        marginRight: "1vh"
+        height: "1rem",
+        marginRight: ".5rem"
+    },
+    fromEmail: {
+        marginBottom: ".3rem"
     }
 }));
 
