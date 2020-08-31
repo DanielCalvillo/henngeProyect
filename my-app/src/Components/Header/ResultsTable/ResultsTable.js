@@ -15,50 +15,61 @@ const useStyles = makeStyles(() => ({
         alignItems: "flex-start",
         justifyContent: "space-between",
         fontWeight: "100",
-        padding: ".2rem"
+        marginTop: "1rem",
+        marginBottom: "1rem",
+        borderBottom: "1px solid #9c9c9c",
+        borderTop: "1px solid #9c9c9c",
+        paddingBottom: "1rem",
+        paddingTop: "1rem",
+        backgroundColor: "#e8e8e8"
     },
     from: {
-        width: "10%",
+        width: "20%",
     },
     subject: {
         width: "30%",
-        marginLeft: "2rem"
+        marginLeft: "3rem"
     },
     to: {
-        width: "11%",
+        width: "20%",
         marginLeft: "2.5rem"
     },
     date: {
         fontWeight: 600,
-        width: "10%",
+        width: "20%",
         textAlign: "right"
     }
 }));
 
-function ResultsTable() {
+function ResultsTable(props) {
     const classes = useStyles();
-
-    return (
-        <div className={classes.container}>
-            <div className={classes.from}>
-                From
+    if (props.results) {
+        return (
+            <div className={classes.container}>
+            
+                <div className={classes.from}>
+                    From
+                </div>
+                <div className={classes.to}>
+                    To
+                </div>
+                <div className={classes.subject} >
+                    Subject
+                </div>
+                <div className={classes.date}>
+                    Date
+                    <img 
+                        className={classes.arrowLogo} 
+                        src={arrowLogo} 
+                        alt="Calendar Logo" 
+                    />
+                </div>
+                <hr />
             </div>
-            <div className={classes.to}>
-                To
-            </div>
-            <div className={classes.subject} >
-                Subject
-            </div>
-            <div className={classes.date}>
-                Date
-                <img 
-                    className={classes.arrowLogo} 
-                    src={arrowLogo} 
-                    alt="Calendar Logo" 
-                />
-            </div>
-        </div>
-    )
+        )
+    } else {
+        return null
+    }
 }
 
 export default ResultsTable

@@ -104,7 +104,7 @@ let mails = [
 
 const useStyles = makeStyles(() => ({
   mobile: {
-    margin: "0"
+    margin: "1rem"
   },
   container: {
     display: "flex",
@@ -121,6 +121,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
+let results = mails.length;
 function App() {
   const classes = useStyles()
       return (
@@ -128,21 +129,19 @@ function App() {
               renderDesktop={() => 
                 <div className={classes.app}> 
                   <Header />
-                  <ResultNumber results={10}/>
-                  <hr/>
-                  <ResultsTable />
-                  <hr />
-                  <EmailList mails={mails}/>
+                  <ResultNumber results={results}/>
+                  
+                  <ResultsTable results={results}/>
+                  
+                  <EmailList mails={mails} results={results}/>
                 </div>
               }
               renderMobile={() => 
                 <div className={classes.mobile}>
                   <Header />
-                  <ResultNumber results={10}/>
-                  <hr/>
-                  <ResultsTableMobile />
-                  <hr />
-                  <EmailListMobile />
+                  <ResultNumber results={results}/>                  
+                  <ResultsTableMobile results={results}/>                
+                  <EmailListMobile mails={mails} results={results}/>
                 </div>
               }
             />
