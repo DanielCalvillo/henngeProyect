@@ -33,7 +33,6 @@ function EmailList(props) {
                                 extraNum={m.extraNum}
                                 clipped={m.clipped}
                             />
-                            <hr />
                         </>
                     ))}
             </div>

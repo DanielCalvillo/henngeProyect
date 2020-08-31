@@ -54,12 +54,12 @@ const useStyles = makeStyles((theme) => ({
         borderBottomRightRadius: "10px"
     },
     searchLogo: {
-        height: "3vh"
+        height: "1.5rem"
     },
     calendarLogo: {
-        marginTop: ".8vh",
-        marginLeft: "1vh",
-        height: "5vh"
+        marginTop: "1rem",
+        marginLeft: "1rem",
+        height: "2rem"
     }
 }));
 
