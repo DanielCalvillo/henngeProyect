@@ -15,7 +15,7 @@ const EmailLineStyles = makeStyles(() => ({
         paddingLeft: "1rem"
     },
     clipIcon: {
-        height: "2vh",
+        height: "1rem",
         marginRight: "1rem"
     },
     mail: {
