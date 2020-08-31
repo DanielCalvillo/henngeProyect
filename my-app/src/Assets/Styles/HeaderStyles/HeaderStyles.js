@@ -14,7 +14,6 @@ const HeaderStyles = makeStyles((theme) => ({
         borderBottomLeftRadius: "10px",
         borderColor: "#9c9c9c",
         borderWidth: "thin",
-        paddingBottom: ".5rem" 
     },
     datepickerContainer: {
         marginTop: "1.3vh",
@@ -43,7 +42,7 @@ const HeaderStyles = makeStyles((theme) => ({
         height: "1.5rem"
     },
     calendarLogo: {
-        marginTop: ".8rem",
+        marginTop: ".3rem",
         marginLeft: "1rem",
         paddingBottom: "0rem",
         height: "2rem"
