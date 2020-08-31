@@ -143,7 +143,7 @@ function App() {
               }
               renderMobile={() => 
                 <div className={classes.mobile}>
-                  <Header />
+                  <Header/>
                   <ResultNumber results={results}/>                  
                   <ResultsTableMobile results={results}/>                
                   <EmailListMobile mails={mails} results={results}/>

@@ -18,14 +18,13 @@ const HeaderStyles = makeStyles((theme) => ({
         padding: "0.25rem 0 0.25rem 1rem"
     },
     datepickerContainer: {
-        marginTop: "1.3vh",
         display: "flex",
         alignContent: "center",
         justifyContent: "center"
     },
     dateSelectorOne: {
         width: "70px",
-        height: "rem",
+        height: "2rem",
         border: "none",
         paddingLeft: "1rem",
 
@@ -40,7 +39,8 @@ const HeaderStyles = makeStyles((theme) => ({
         borderColor: "#737373",
         borderRadius: "0",
         borderTopRightRadius: "10px",
-        borderBottomRightRadius: "10px"
+        borderBottomRightRadius: "10px",
+        backgroundColor: "#f5f5f5"
     },
     searchLogo: {
         height: "1.5rem"
