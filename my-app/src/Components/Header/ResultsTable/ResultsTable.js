@@ -3,25 +3,35 @@ import arrowLogo from '../../../Assets/icons/icon_arrow01.svg';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
+    arrowLogo: {
+        height: ".4rem",
+        marginRight: "1rem",
+        marginLeft: ".5rem"
+    },
     container: {
         display: "flex",
-        // backgroundColor: "#ededed",
         flexWrap: "wrap",
         flexDirection: "row",
         alignItems: "flex-start",
         justifyContent: "space-between",
         fontWeight: "100",
-        padding: ".2rem",
-        height: "3vh",
-      },
-    arrowLogo: {
-        marginLeft: ".3vh",
-        marginBottom: ".2vh",
-        height: ".6vh"
+        padding: ".2rem"
     },
-    dateContainer : {
-        textAlign: "left",
-        fontWeight: 600
+    from: {
+        width: "10%",
+    },
+    subject: {
+        width: "30%",
+        marginLeft: "2rem"
+    },
+    to: {
+        width: "11%",
+        marginLeft: "2.5rem"
+    },
+    date: {
+        fontWeight: 600,
+        width: "10%",
+        textAlign: "right"
     }
 }));
 
@@ -30,17 +40,16 @@ function ResultsTable() {
 
     return (
         <div className={classes.container}>
-            <div className="mail-text email first">
+            <div className={classes.from}>
                 From
             </div>
-            
-            <div className="mail-text email">
+            <div className={classes.to}>
                 To
             </div>
-            <div className="mail-text subject" >
+            <div className={classes.subject} >
                 Subject
             </div>
-            <div className="mail-text date" style={{width:"100px"}}>
+            <div className={classes.date}>
                 Date
                 <img 
                     className={classes.arrowLogo} 
